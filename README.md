@@ -1,35 +1,36 @@
-# 🚫 My DNS Blocklist
+# 🚫 My DNS Blocklist (Auto-Updated)
 
-Danh sách các tên miền quảng cáo, theo dõi và nội dung độc hại được cập nhật thủ công nhằm tối ưu hóa trải nghiệm duyệt web, đặc biệt là các trang web tại Việt Nam.
+Bộ lọc DNS cá nhân được tổng hợp từ các nguồn uy tín nhất thế giới, tối ưu hóa cho tốc độ và bảo mật. Danh sách này được tự động cập nhật hàng ngày bằng GitHub Actions.
+
+
 
 ---
 
-## 🚀 Cách sử dụng
+## 🚀 Tính năng nổi bật
 
-Để sử dụng bộ lọc này, bạn hãy sao chép đường dẫn bên dưới và dán vào phần cấu hình Blocklist của **AdGuard Home**, **Pi-hole** hoặc các ứng dụng hỗ trợ chặn DNS.
+* **Tự động cập nhật:** Hệ thống tự động quét và cập nhật dữ liệu mới nhất vào lúc 07:00 AM (giờ Việt Nam) hàng ngày.
+* **Độ bao phủ cao:** Tổng hợp từ HaGeZi Pro+, AdGuard, hostsVN, ABPVN, và nhiều nguồn chống Malware/Phishing khác.
+* **Loại trừ thông minh:** Tự động loại bỏ các tên miền nằm trong Whitelist để tránh tình trạng "chặn nhầm" (False Positive).
+* **Định dạng tối ưu:** Chuyên dụng cho AdGuard Home với định dạng `||example.com^`.
 
-### Link Raw (Sử dụng link này):
+---
+
+## 🔗 Link sử dụng (Import)
+
+Hãy copy link dưới đây và dán vào phần **DNS Blocklists** trong AdGuard Home:
+
 `https://raw.githubusercontent.com/hoafd/my-dns-blocklist/main/dns_filter.txt`
 
 ---
 
-## 🛠️ Hướng dẫn thêm vào AdGuard Home
+## 🛠️ Quy trình vận hành (Workflow)
 
-1. Mở giao diện quản trị **AdGuard Home**.
-2. Chọn menu **Filters** (Bộ lọc) -> **DNS Blocklists**.
-3. Nhấn nút **Add blocklist** -> **Add a custom list**.
-4. Nhập tên: `hoafd Personal Filter`.
-5. Dán đường dẫn URL ở trên vào ô tương ứng.
-6. Nhấn **Save** (Lưu).
+1. **Thu thập:** Script Python tải dữ liệu từ 8+ nguồn blocklist lớn.
+2. **Lọc:** Loại bỏ các tên miền trùng lặp và các tên miền nằm trong danh sách an toàn (Whitelist).
+3. **Build:** Xuất bản file `dns_filter.txt` mới.
+4. **Deploy:** GitHub Action tự động Commit và Push dữ liệu mới lên Repository.
 
 ---
 
-## 📝 Định dạng bản ghi
-Bộ lọc sử dụng định dạng tiêu chuẩn của AdGuard/Hosts:
-- `||example.com^`: Chặn toàn bộ tên miền example.com và các tên miền con.
-- `0.0.0.0 ads.example.com`: Trỏ tên miền quảng cáo về IP trống.
-
----
-
-## ⚖️ Giấy phép (License)
-Dự án này được cấp phép theo [MIT License](LICENSE). Copyright (c) 2026 **hoafd**.
+## ⚖️ Giấy phép
+Dự án được cấp phép theo [MIT License](LICENSE). Copyright (c) 2026 **hoafd**.
